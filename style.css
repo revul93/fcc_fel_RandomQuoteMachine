@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri&family=Inria+Sans:wght@300&family=Reem+Kufi&family=Russo+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.2rem;
+}
+
+#title {
+  text-align: center;
+  font-family: "Reem Kufi";
+  font-size: 1.8rem;
+}
+
+#container {
+  background-color: white;
+  padding: 20px;
+  width: 750px;
+  border-radius: 15px 15px 0 0;
+}
+
+@media screen and (max-width: 750px) {
+  #container {
+    width: 100vw;
+  }
+}
+
+#hadith {
+  margin: 5vh 5vw;
+  display: block;
+}
+
+#sanad {
+  color: #888888;
+}
+
+#matn {
+  margin-top: 1vh;
+  color: #00003F;
+  font-family: "El Messiri";
+  font-weight: 500;
+}
+
+#rawi {
+  margin-top: 3vh;
+  color: #888888;
+}
+
+#langButton {
+  float: right;
+}
+
+#langButton:hover {
+  background-color: wheat;
+}
+
+.navButtons {
+  color: white;
+}
+
+.navButtons:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+#tweet {
+  float: right;
+  margin-right: 5vw;
+  color: white;
+}
+
+#footer {
+  display: block;
+  width: 750px;
+  background-color: #000;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 0 0 15px 15px;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: skyblue;
+}
+
+.btn {
+  border-radius: 30px;
+  min-width: 60px;
+  font-size: 1.2rem;
+  font-family: "Russo One";
+}
+
+.ar-style {
+  direction: rtl;
+  text-align: right;
+}
+
+.en-style {
+  direction: ltr;
+  text-align: left;
+}
+/*# sourceMappingURL=style.css.map */
