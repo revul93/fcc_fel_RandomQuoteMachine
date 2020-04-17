@@ -29,7 +29,7 @@ body {
     font-size: 1.8rem;
 }
 
-#container {
+#quote-box {
     background-color: white;
     padding: 20px;
     width: 750px;
@@ -37,12 +37,12 @@ body {
 }
 
 @media screen and (max-width: 750px) {
-    #container {
+    #quote-box, .footer{
         width: 100vw;
     }
 }
 
-#hadith {
+#text {
     margin: 5vh 5vw;
     display: block;
 }
@@ -79,7 +79,7 @@ body {
     }
 }
 
-#tweet {
+#tweet-quote {
     float: right;
     margin-right: 5vw;
     color: white;

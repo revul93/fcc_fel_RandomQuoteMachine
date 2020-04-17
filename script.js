@@ -23,12 +23,12 @@ $('document').ready(function() {
         })
         .then(function() {
             getHadith(0);
-            $('#hadith').addClass('ar-style');
+            $('#text').addClass('ar-style');
         })
     ).catch(function(error) {
         $('body').css('backgroundColor', '#000')
         $('.btn').css('visibility', 'hidden')
-        $('#hadith').text("Error loading data from server!");
+        $('#text').text("Error loading data from server!");
     });
 })
 
@@ -38,7 +38,7 @@ function getHadith(next = getRandomInt(hadithLength)) {
     }
     currIndex = next;
 
-    $('#hadith').animate(
+    $('#text').animate(
         {opacity: 0},
         500, function() {
             $('#title').text(lang == 'ar' ? 
@@ -47,15 +47,16 @@ function getHadith(next = getRandomInt(hadithLength)) {
             hadithElements.forEach(elem => { 
                 $(`#${elem}`).text(hadith[currIndex][elem][lang])
             })
+            $('#author').text(lang == 'ar' ? `الإمام النووي، حديث رقم ${currIndex + 1}` : `Imam Al Nawawi, Hadith No. ${currIndex + 1}`);
         }
     )
     $('#nextButton').attr('title', lang == 'ar' ? "التالي" : "next");
     $('#prevButton').attr('title', lang == 'ar' ? "السابق" : "previous");
-    $('#randButton').attr('title', lang == 'ar' ? "عشوائي" : "random");
-    $('#tweet').attr('href', `https://twitter.com/intent/tweet?hashtags=${encodeURIComponent('حديث_شريف')}&text=${encodeURIComponent(hadith[currIndex]['sanad'][lang]) + hadith[currIndex]['matn'][lang]}`)
-    $('#hadith').animate({opacity: 1}, 500);
+    $('#new-quote').attr('title', lang == 'ar' ? "عشوائي" : "random");
+    $('#tweet-quote').attr('href', `https://twitter.com/intent/tweet?hashtags=${encodeURIComponent('حديث_شريف')}&text=${encodeURIComponent(hadith[currIndex]['sanad'][lang]) + hadith[currIndex]['matn'][lang]}`)
+    $('#text').animate({opacity: 1}, 500);
     var color = bodyColors[getRandomInt(bodyColors.length)]
-    $('body, .navButtons, #tweet').animate({backgroundColor: color}, 500);
+    $('body, .navButtons, #tweet-quote').animate({backgroundColor: color}, 500);
 }
 
 $('#nextButton').on('click', function() {
@@ -70,7 +71,7 @@ $('#prevButton').on('click', function() {
     return false;
 })
 
-$('#randButton').on('click', function() {
+$('#new-quote').on('click', function() {
     getHadith();
     $(this).blur();
     return false;
@@ -81,12 +82,12 @@ $('#langButton').on('click', function() {
     getHadith(currIndex);
 
     if (lang == 'ar') {
-        $('#hadith').removeClass('en-style');
-        $('#hadith').addClass('ar-style');
+        $('#text').removeClass('en-style');
+        $('#text').addClass('ar-style');
         $(this).text('EN');
     } else {
-        $('#hadith').removeClass('ar-style');
-        $('#hadith').addClass('en-style');
+        $('#text').removeClass('ar-style');
+        $('#text').addClass('en-style');
         $(this).text('ع');
     }
     $(this).blur();
