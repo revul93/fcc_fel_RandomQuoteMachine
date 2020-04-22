@@ -16,20 +16,21 @@ let hadithLength;
 const hadithURL = "https://gist.githubusercontent.com/revul93/bb092168540fe7892addd0d25fe2f97f/raw/72642fdd86bce95c17126b630408db784fedd769/fourty_hadith_of_Nawawi.json"
 
 $('document').ready(function() {
-    fetch(hadithURL).then(response => response.json()
-        .then(function(data) {
-            hadith = data;
-            hadithLength = Object.keys(hadith).length;
-        })
-        .then(function() {
-            getHadith(0);
-            $('#text').addClass('ar-style');
-        })
-    ).catch(function(error) {
+    $.ajax({
+        url: hadithURL,
+        type: 'GET',
+        async: false,
+        dataType: 'json',
+    }).done(function(data) {
+        hadith = data;
+        hadithLength = Object.keys(hadith).length;
+        getHadith(0);
+        $('#text').addClass('ar-style');
+    }).fail(function() {
         $('body').css('backgroundColor', '#000')
         $('.btn').css('visibility', 'hidden')
         $('#text').text("Error loading data from server!");
-    });
+    })
 })
 
 function getHadith(next = getRandomInt(hadithLength)) {
